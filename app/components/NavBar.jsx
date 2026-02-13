@@ -2,7 +2,7 @@ import { assets } from '@/assets/assets'
 import Image from 'next/image'
 import React, { useEffect, useRef, useState } from 'react'
 
-const NavBar = () => {
+const NavBar = ({isDarkMode, setIsDarkMode}) => {
 
     const [isScrolled, setIsScrolled] = useState(false);
 
@@ -28,14 +28,14 @@ const NavBar = () => {
 
     return (
         <>
-            <div className='fixed top-0 right-0 w-11/12 -z-10 translate-y-[-80%]'>
+            <div className='fixed top-0 right-0 w-11/12 -z-10 translate-y-[-80%] dark:hidden'>
                 <Image src={assets.header_bg_color} alt='header-bg' className='w-full' />
             </div>
 
             <nav className={`w-full fixed px-5 lg:px-8 xl:px-[8%] py-4 flex items-center justify-between z-50 
-                ${isScrolled ? "bg-white/50 backdrop-blur-lg shadow-sm" : ""}`}>
+                ${isScrolled ? "bg-white/50 backdrop-blur-lg shadow-sm dark:bg-dark-theme dark:shadow-white/20" : ""}`}>
                 <a href="#top">
-                    <Image src={assets.logo} alt='Ayomal Logo' className='w-28 cursor-pointer mr-14' />
+                    <Image src={isDarkMode ? assets.logo_dark:assets.logo} alt='Ayomal Logo' className='w-28 cursor-pointer mr-14' />
                 </a>
 
                 <ul className={`hidden md:flex items-center gap-6 lg:gap-8 rounded-full px-12 py-3 ${isScrolled ? "transition duration-200":"shadow-sm bg-white/50 backdrop-blur-lg transition duration-500"}`}>
@@ -47,12 +47,12 @@ const NavBar = () => {
 
                 <div className='flex items-center gap-4'>
 
-                    <button>
-                        <Image src={assets.moon_icon} alt='Menu Icon' className='w-6' />
+                    <button onClick={() => setIsDarkMode(prev => !prev)} className='cursor-pointer'>
+                        <Image src={isDarkMode ? assets.sun_icon: assets.moon_icon} alt='Menu Icon' className='w-6' />
                     </button>
 
                     <a href="#contact" className='hidden lg:flex items-center gap-3 px-10 py-2.5 border border-gray-500 rounded-full ml-4 font-ovo'>
-                        Contact <Image src={assets.arrow_icon} alt='Contact Icon'
+                        Contact <Image src={isDarkMode ?assets.arrow_icon_dark :assets.arrow_icon} alt='Contact Icon'
                             className='w-3' />
                     </a>
 
