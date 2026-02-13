@@ -3,19 +3,31 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --light-hover: #f2f2f2;
+  --dark-hover: #2a004a;
+  --dark-theme: #11001f;
+  --box-dark-shadow: 0px 4px 12px #000;
+  --box-light-shadow: 0px 4px 12px #fff;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-light-hover: var(--light-hover);
+  --color-dark-hover: var(--dark-hover);
+  --color-dark-theme: var(--dark-theme);
+  --box-dark-shadow: var(--box-dark-shadow);
+  --box-light-shadow: var(--box-light-shadow);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-outfit: "Outfit", sans-serif;
+  --font-ovo: "Ovo", serif;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #ffffff;
+    --foreground: #000000;
   }
 }
 
