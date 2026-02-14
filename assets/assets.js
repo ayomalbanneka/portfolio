@@ -1,4 +1,4 @@
-import user_image from './user-image.png';
+import user_image from './user_image_test.jpeg';
 import code_icon from './code-icon.png';
 import code_icon_dark from './code-icon-dark.png';
 import edu_icon from './edu-icon.png';
@@ -9,13 +9,21 @@ import vscode from './vscode.png';
 import firebase from './firebase.png';
 import figma from './figma.png';
 import git from './git.png';
+import docker from './docker.png';
+import netbeans from './netbeans.png';
+import mysql from './mysql.png';
+import intellijIDEA from './intellij-idea.png';
+import postman from './postman.png';
+import aws from './aws.png';
+import azure from './azure.png';
+import github_actions from './github_actions.png';
 import mongodb from './mongodb.png';
 import right_arrow_white from './right-arrow-white.png';
-import logo from './logo.png';
-import logo_dark from './logo_dark.png';
+import logo from './logo_test.png';
+import logo_dark from './white_logo.png';
 import mail_icon from './mail_icon.png';
 import mail_icon_dark from './mail_icon_dark.png';
-import profile_img from './profile-img.png';
+import profile_img from './profile_img(2).png';
 import download_icon from './download-icon.png';
 import hand_icon from './hand-icon.png';
 import header_bg_color from './header-bg-color.png';
@@ -49,6 +57,14 @@ export const assets = {
     figma,
     git,
     mongodb,
+    docker,
+    netbeans,
+    mysql,
+    intellijIDEA,
+    postman,
+    aws,
+    azure,
+    github_actions,
     right_arrow_white,
     logo,
     logo_dark,
@@ -78,25 +94,25 @@ export const assets = {
 
 export const workData = [
     {
-        title: 'Frontend project',
-        description: 'Web Design',
+        title: 'E-commerce website',
+        description: 'Web Development',
         bgImage: '/work-1.png',
     },
     {
-        title: 'Geo based app',
-        description: 'Mobile App',
+        title: 'Inventory management System',
+        description: 'Java swing application',
         bgImage: '/work-2.png',
     },
     {
-        title: 'Photography site',
-        description: 'Web Design',
+        title: 'Online book store',
+        description: 'Build using Java, HTML, CSS and JavaScript and REST API',
         bgImage: '/work-3.png',
     },
-    {
-        title: 'UI/UX designing',
-        description: 'UI/UX Design',
-        bgImage: '/work-4.png',
-    },
+    // {
+    //     title: 'UI/UX designing',
+    //     description: 'UI/UX Design',
+    //     bgImage: '/work-4.png',
+    // },
 ]
 
 export const serviceData = [
@@ -113,5 +129,10 @@ export const infoList = [
 ];
 
 export const toolsData = [
-    assets.vscode, assets.firebase, assets.mongodb, assets.figma, assets.git
+    assets.vscode,assets.git, assets.docker, assets.netbeans, assets.mysql, assets.intellijIDEA, assets.postman, assets.github_actions,
+    assets.firebase
 ];
+
+export const cloudServicesData = [
+    assets.aws, assets.azure    
+]
