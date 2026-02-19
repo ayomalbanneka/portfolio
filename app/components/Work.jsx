@@ -42,7 +42,7 @@ const Work = ({ isDarkMode }) => {
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 transition={{ duration: 0.9, delay: 0.6 }}
-                className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 my-10 gap-5 dark:text-black'>
+                className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 my-10 gap-6 dark:text-black'>
 
                 {workData.map((project, index) => (
 
@@ -50,16 +50,24 @@ const Work = ({ isDarkMode }) => {
                         whileHover={{ scale: 1.05 }}
                         transition={{ duration: 0.3 }}
                         key={index}
-                        className='aspect-square bg-no-repeat bg-cover bg-center rounded-lg relative cursor-pointer group   '
-                        style={{ backgroundImage: `url(${project.bgImage})` }}>
-                        <div className='bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-4 flex items-center gap-2 group-hover:bottom-7 duration-500'>
+                        className='aspect-video rounded-lg relative cursor-pointer group overflow-hidden shadow-lg'>
+                        <Image
+                            src={project.bgImage}
+                            alt={project.title}
+                            fill
+                            sizes='(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw'
+                            className='object-cover object-top rounded-lg'
+                        />
+                        <div className='bg-white/95 w-11/12 rounded-md absolute bottom-3 left-1/2 -translate-x-1/2 py-3 px-4 flex items-center gap-2 group-hover:bottom-5 duration-500 z-10'>
                             <div className='flex-1 min-w-0'>
                                 <h2 className='font-semibold text-sm sm:text-base leading-snug'>{project.title}</h2>
                                 <p className='text-xs sm:text-sm text-gray-700 leading-tight mt-0.5 line-clamp-2'>{project.description}</p>
                             </div>
                             <div className='border rounded-full border-black w-9 min-w-9 aspect-square flex items-center 
                                 justify-center shadow-[2px_2px_0_#000] group-hover:bg-lime-300 transition'>
-                                <Image src={assets.send_icon} alt='send icon' className='w-5' />
+                                <a href={project.link} target='_blank' rel='noopener noreferrer' className='w-full h-full flex items-center justify-center'>
+                                    <Image src={assets.send_icon} alt='send icon' className='w-5' />
+                                </a>
                             </div>
                         </div>
                     </motion.div>
