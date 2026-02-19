@@ -1,4 +1,4 @@
-import user_image from './user_image_test.jpeg';
+import user_image from './user-image.jpeg';
 import code_icon from './code-icon.png';
 import code_icon_dark from './code-icon-dark.png';
 import edu_icon from './edu-icon.png';
@@ -23,7 +23,7 @@ import logo from './logo_test.png';
 import logo_dark from './white_logo.png';
 import mail_icon from './mail_icon.png';
 import mail_icon_dark from './mail_icon_dark.png';
-import profile_img from './profile_img(2).png';
+import profile_img from './profile-img.png';
 import download_icon from './download-icon.png';
 import hand_icon from './hand-icon.png';
 import header_bg_color from './header-bg-color.png';
@@ -37,12 +37,13 @@ import close_black from './close-black.png';
 import close_white from './close-white.png';
 import web_icon from './web-icon.png';
 import mobile_icon from './mobile-icon.png';
-import ui_icon from './ui-icon.png';
+import cloud_icon from './cloud.png';
 import graphics_icon from './graphics-icon.png';
 import right_arrow from './right-arrow.png';
 import send_icon from './send-icon.png';
 import right_arrow_bold from './right-arrow-bold.png';
 import right_arrow_bold_dark from './right-arrow-bold-dark.png';
+import devops_icon from './devops.png';
 
 export const assets = {
     user_image,
@@ -53,6 +54,7 @@ export const assets = {
     project_icon,
     project_icon_dark,
     vscode,
+    cloud_icon,
     firebase,
     figma,
     git,
@@ -84,7 +86,7 @@ export const assets = {
     close_white,
     web_icon,
     mobile_icon,
-    ui_icon,
+    devops_icon,
     graphics_icon,
     right_arrow,
     send_icon,
@@ -97,29 +99,27 @@ export const workData = [
         title: 'E-commerce website',
         description: 'Web Development',
         bgImage: '/work-1.png',
+        link:'https://github.com/ayomalbanneka/e-commerce-web-application'
     },
     {
         title: 'Inventory management System',
         description: 'Java swing application',
-        bgImage: '/work-2.png',
+        bgImage: '/work-3.png',
+        link:'https://github.com/ayomalbanneka/Inventory-Management-System'
     },
     {
-        title: 'Online book store',
+        title: 'Bookly - Online book store',
         description: 'Build using Java, HTML, CSS and JavaScript and REST API',
-        bgImage: '/work-3.png',
+        bgImage: '/work-2.png',
+        link:'https://github.com/ayomalbanneka/Bookly'
     },
-    // {
-    //     title: 'UI/UX designing',
-    //     description: 'UI/UX Design',
-    //     bgImage: '/work-4.png',
-    // },
 ]
 
 export const serviceData = [
-    { icon: assets.web_icon, title: 'Web design', description: 'Web development is the process of building, programming...', link: '' },
-    { icon: assets.mobile_icon, title: 'Mobile app', description: 'Mobile app development involves creating software for mobile devices...', link: '' },
-    { icon: assets.ui_icon, title: 'UI/UX design', description: 'UI/UX design focuses on creating a seamless user experience...', link: '' },
-    { icon: assets.graphics_icon, title: 'Graphics design', description: 'Creative design solutions to enhance visual communication...', link: '' },
+    { icon: assets.web_icon, title: 'Web Development', description: 'Web development is the process of building, programming...', link: '' },
+    { icon: assets.mobile_icon, title: 'Mobile App', description: 'Mobile app development involves creating software for mobile devices...', link: '' },
+    { icon: assets.cloud_icon, title: 'Cloud Development', description: 'Designing and deploying scalable cloud solutions using AWS, Azure, and serverless architectures with CI/CD pipelines...', link: '' },
+    { icon: assets.devops_icon, title: 'DevOps & Automation', description: 'Streamlining development workflows with Docker, GitHub Actions, and infrastructure as code for reliable deployments...', link: '' },
 ]
 
 export const infoList = [
