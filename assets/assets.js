@@ -113,6 +113,12 @@ export const workData = [
         bgImage: '/work-2.png',
         link:'https://github.com/ayomalbanneka/Bookly'
     },
+    {
+        title: 'Simple Node.js App Host on Azure App Service',
+        description: 'A simple Node.js application deployed on Azure App Service, showcasing cloud deployment and management skills.',
+        bgImage: '/work-4.png',
+        link:'https://github.com/ayomalbanneka/azure-ci-cd'
+    }
 ]
 
 export const serviceData = [
