@@ -27,8 +27,6 @@ const jsonLd = {
   ],
   knowsAbout: [
     "JavaScript",
-    "React",
-    "Next.js",
     "Java",
     "PHP",
     "Docker",
