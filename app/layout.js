@@ -19,9 +19,6 @@ export const metadata = {
     default: "Ayomal Banneka | Full Stack Software Engineer & DevOps",
     template: "%s | Ayomal Banneka",
   },
-  verification: {
-    google: "google7e819f4318d25484",
-  },
   description:
     "Ayomal Banneka — Full Stack Software Engineer & aspiring DevOps Engineer from Sri Lanka. Explore projects, skills, and experience in web development, cloud, and DevOps.",
   keywords: [
