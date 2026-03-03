@@ -3,11 +3,11 @@ import Image from 'next/image'
 import { motion } from 'motion/react'
 import { assets, serviceData } from '@/assets/assets'
 
-const Services = () => {
+const Services = ({isDarkMode}) => {
   return (
     <motion.div
       id="services"
-      className="w-full px-[12%] py-10 scroll-mt-20"
+      className="w-full px-[5%] sm:px-[8%] lg:px-[12%] py-10 scroll-mt-20"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 1 }}
@@ -23,7 +23,7 @@ const Services = () => {
       </motion.h4>
 
       <motion.h2
-        className="text-center text-5xl font-Ovo dark:text-white"
+        className="text-center text-3xl sm:text-5xl font-Ovo dark:text-white"
         initial={{ y: -20, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.5 }}
@@ -48,7 +48,7 @@ const Services = () => {
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.6, delay: 0.9 }}
       >
-        {serviceData.map(({ icon, title, description, link }, index) => (
+        {serviceData.map(({ icon, title, description, link, darkIcon }, index) => (
           <motion.div
             key={index}
             className="border border-gray-400 rounded-lg px-8 py-12 cursor-pointer
@@ -58,7 +58,7 @@ const Services = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.2 * index }}
           >
-            <Image src={icon} alt={title} className="w-10 mt-3" />
+            <Image src={isDarkMode ? darkIcon : icon} alt={title} className="w-10 mt-3" />
             <h3 className="text-lg my-4 text-gray-700 dark:text-white">
               {title}
             </h3>

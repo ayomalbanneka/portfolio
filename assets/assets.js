@@ -44,6 +44,10 @@ import send_icon from './send-icon.png';
 import right_arrow_bold from './right-arrow-bold.png';
 import right_arrow_bold_dark from './right-arrow-bold-dark.png';
 import devops_icon from './devops.png';
+import web_development_icon_white from './web-development-white.png';
+import mobile_icon_white from './mobile_icon_dark.png';
+import cloud_icon_white from './cloud-icon-dark.png';
+import devops_icon_white from './devops-icon-dark.png';
 
 export const assets = {
     user_image,
@@ -91,7 +95,11 @@ export const assets = {
     right_arrow,
     send_icon,
     right_arrow_bold,
-    right_arrow_bold_dark
+    right_arrow_bold_dark,
+    web_development_icon_white,
+    mobile_icon_white,
+    cloud_icon_white,
+    devops_icon_white
 };
 
 export const workData = [
@@ -99,33 +107,33 @@ export const workData = [
         title: 'E-commerce website',
         description: 'Web Development',
         bgImage: '/work-1.png',
-        link:'https://github.com/ayomalbanneka/e-commerce-web-application'
+        link: 'https://github.com/ayomalbanneka/e-commerce-web-application'
     },
     {
         title: 'Inventory management System',
         description: 'Java swing application',
         bgImage: '/work-3.png',
-        link:'https://github.com/ayomalbanneka/Inventory-Management-System'
+        link: 'https://github.com/ayomalbanneka/Inventory-Management-System'
     },
     {
         title: 'Bookly - Online book store',
         description: 'Build using Java, HTML, CSS and JavaScript and REST API',
         bgImage: '/work-2.png',
-        link:'https://github.com/ayomalbanneka/Bookly'
+        link: 'https://github.com/ayomalbanneka/Bookly'
     },
     {
         title: 'Simple Node.js App Host on Azure App Service',
         description: 'A simple Node.js application deployed on Azure App Service, showcasing cloud deployment and management skills.',
         bgImage: '/work-4.png',
-        link:'https://github.com/ayomalbanneka/azure-ci-cd'
+        link: 'https://github.com/ayomalbanneka/azure-ci-cd'
     }
 ]
 
 export const serviceData = [
-    { icon: assets.web_icon, title: 'Web Development', description: 'Web development is the process of building, programming...', link: '' },
-    { icon: assets.mobile_icon, title: 'Mobile App', description: 'Mobile app development involves creating software for mobile devices...', link: '' },
-    { icon: assets.cloud_icon, title: 'Cloud Development', description: 'Designing and deploying scalable cloud solutions using AWS, Azure, and serverless architectures with CI/CD pipelines...', link: '' },
-    { icon: assets.devops_icon, title: 'DevOps & Automation', description: 'Streamlining development workflows with Docker, GitHub Actions, and infrastructure as code for reliable deployments...', link: '' },
+    { icon: assets.web_icon, darkIcon: assets.web_development_icon_white, title: 'Web Development', description: 'Web development is the process of building, programming...', link: '' },
+    { icon: assets.mobile_icon, darkIcon: assets.mobile_icon_white, title: 'Mobile App', description: 'Mobile app development involves creating software for mobile devices...', link: '' },
+    { icon: assets.cloud_icon, darkIcon: assets.cloud_icon_white, title: 'Cloud Development', description: 'Designing and deploying scalable cloud solutions using AWS, Azure, and serverless architectures with CI/CD pipelines...', link: '' },
+    { icon: assets.devops_icon, darkIcon: assets.devops_icon_white, title: 'DevOps & Automation', description: 'Streamlining development workflows with Docker, GitHub Actions, and infrastructure as code for reliable deployments...', link: '' },
 ]
 
 export const infoList = [
@@ -135,10 +143,10 @@ export const infoList = [
 ];
 
 export const toolsData = [
-    assets.vscode,assets.git, assets.docker, assets.netbeans, assets.mysql, assets.intellijIDEA, assets.postman, assets.github_actions,
+    assets.vscode, assets.git, assets.docker, assets.netbeans, assets.mysql, assets.intellijIDEA, assets.postman, assets.github_actions,
     assets.firebase
 ];
 
 export const cloudServicesData = [
-    assets.aws, assets.azure    
+    assets.aws, assets.azure
 ]
