@@ -10,7 +10,7 @@ const Work = ({ isDarkMode }) => {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 1 }}
-            id='work' className='w-full px-[12%] py-10 scroll-mt-20'>
+            id='work' className='w-full px-[5%] sm:px-[8%] lg:px-[12%] py-10 scroll-mt-20'>
 
             <motion.h4
                 initial={{ y: -20, opacity: 0 }}
@@ -24,7 +24,7 @@ const Work = ({ isDarkMode }) => {
                 initial={{ y: -20, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.5, delay: 0.5 }}
-                className='text-center text-5xl font-ovo'>
+                className='text-center text-3xl sm:text-5xl font-ovo'>
                 My Latest Work
             </motion.h2>
 

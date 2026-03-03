@@ -5,7 +5,7 @@ import { motion } from "motion/react"
 
 const About = ({ isDarkMode }) => {
     return (
-        <motion.div id='about' className='w-full px-[12%] py-10 scroll-mt-20'
+        <motion.div id='about' className='w-full px-[5%] sm:px-[8%] lg:px-[12%] py-10 scroll-mt-20'
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 1 }}
@@ -20,13 +20,13 @@ const About = ({ isDarkMode }) => {
                 initial={{ y: -20, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.5, delay: 0.5 }}
-                className='text-center text-5xl font-ovo'>About Me</motion.h2>
+                className='text-center text-3xl sm:text-5xl font-ovo'>About Me</motion.h2>
 
             <motion.div
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 transition={{ duration: 0.8 }}
-                className='flex w-full flex-col lg:flex-row items-center gap-20 my-20'>
+                className='flex w-full flex-col lg:flex-row items-center gap-10 lg:gap-20 my-10 lg:my-20'>
 
                 <motion.div
                     initial={{ opacity: 0, scale: 0.9 }}
@@ -81,7 +81,7 @@ const About = ({ isDarkMode }) => {
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
                         transition={{ duration: 0.6, delay: 1.5 }}
-                        className='flex items-center gap-3 sm:gap-5'>
+                        className='flex flex-wrap items-center gap-3 sm:gap-5'>
                         {toolsData.map((tool, index) => (
                             <motion.li
                                 whileHover={{ scale: 1.05 }}
@@ -105,7 +105,7 @@ const About = ({ isDarkMode }) => {
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
                         transition={{ duration: 0.6, delay: 1.5 }}
-                        className='flex items-center gap-3 sm:gap-5'>
+                        className='flex flex-wrap items-center gap-3 sm:gap-5'>
                         {cloudServicesData.map((tool, index) => (
                             <motion.li
                                 whileHover={{ scale: 1.05 }}
