@@ -1,32 +1,36 @@
 import { assets } from '@/assets/assets'
 import Image from 'next/image'
-import React, { useState } from 'react'
+import React from 'react'
 import { motion } from "motion/react"
+import { gooeyToast } from 'goey-toast'
 
 const Contact = () => {
-    const [result, setResult] = useState("");
 
     const onSubmit = async (event) => {
         event.preventDefault();
-        setResult("Sending....");
         const formData = new FormData(event.target);
-
         formData.append("access_key", process.env.NEXT_PUBLIC_WEB3FORMS_API_KEY);
 
-        const response = await fetch("https://api.web3forms.com/submit", {
+        const submitPromise = fetch("https://api.web3forms.com/submit", {
             method: "POST",
             body: formData,
+        }).then(async (res) => {
+            const data = await res.json();
+            if (!data.success) throw new Error(data.message || "Submission failed");
+            return data;
         });
 
-        const data = await response.json();
+        gooeyToast.promise(submitPromise, {
+            loading: 'Sending your message...',
+            success: 'Message sent!',
+            error: 'Something went wrong',
+            description: {
+                success: 'Thanks for reaching out. I\'ll get back to you soon.',
+                error: 'Please try again or email me directly.',
+            },
+        });
 
-        if (data.success) {
-            setResult("Form Submitted Successfully");
-            event.target.reset();
-        } else {
-            console.log("Error", data);
-            setResult(data.message);
-        }
+        submitPromise.then(() => event.target.reset()).catch(() => {});
     };
 
     return (
@@ -80,7 +84,7 @@ const Contact = () => {
                         initial={{ x: 50, opacity: 0 }}
                         whileInView={{ x: 0, opacity: 1 }}
                         transition={{ duration: 1.1, delay: 0.6 }}
-                        type="Email" placeholder='Enter your email' className='flex-1 p-3 outline-none border-[0.5px]
+                        type="email" placeholder='Enter your email' className='flex-1 p-3 outline-none border-[0.5px]
                      border-gray-400 rounded-md bg-white dark:bg-dark-hover/30 dark:border-white/90' required name='email' />
 
                 </div>
@@ -95,7 +99,7 @@ const Contact = () => {
                 </motion.textarea>
 
                 <motion.button
-                    whileHover={{scale:1.05}}
+                    whileHover={{ scale: 1.05 }}
                     transition={{ duration: 0.3 }}
                     className='py-3 px-8 w-max flex items-center justify-between gap-2 bg-black/80
                  text-white rounded-full mx-auto hover:bg-black 
@@ -103,7 +107,6 @@ const Contact = () => {
                     Submit now <Image src={assets.right_arrow_white} alt='' className='w-4' />
                 </motion.button>
 
-                <p className='mt-4'>{result}</p>
             </motion.form>
         </motion.div>
     )

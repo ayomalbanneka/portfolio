@@ -14,7 +14,7 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
   name: "Ayomal Banneka",
-  url: process.env.NEXT_PUBLIC_SITE_URL || "https://ayomalbanneka.vercel.app",
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://ayomalbanneka.me",
   jobTitle: "Full Stack Software Engineer",
   description:
     "Full Stack Software Engineer & aspiring DevOps Engineer from Sri Lanka, specialising in React, Next.js, cloud, and DevOps.",
@@ -67,7 +67,7 @@ export default function Home() {
         id="json-ld"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        strategy="afterInteractive"
+        strategy="beforeInteractive"
       />
       <NavBar isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
       <main>

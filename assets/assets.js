@@ -143,10 +143,18 @@ export const infoList = [
 ];
 
 export const toolsData = [
-    assets.vscode, assets.git, assets.docker, assets.netbeans, assets.mysql, assets.intellijIDEA, assets.postman, assets.github_actions,
-    assets.firebase
+    { src: assets.vscode, name: 'VS Code' },
+    { src: assets.git, name: 'Git' },
+    { src: assets.docker, name: 'Docker' },
+    { src: assets.netbeans, name: 'NetBeans' },
+    { src: assets.mysql, name: 'MySQL' },
+    { src: assets.intellijIDEA, name: 'IntelliJ IDEA' },
+    { src: assets.postman, name: 'Postman' },
+    { src: assets.github_actions, name: 'GitHub Actions' },
+    { src: assets.firebase, name: 'Firebase' },
 ];
 
 export const cloudServicesData = [
-    assets.aws, assets.azure
-]
+    { src: assets.aws, name: 'AWS' },
+    { src: assets.azure, name: 'Azure' },
+];
