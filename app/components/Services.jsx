@@ -37,8 +37,7 @@ const Services = ({isDarkMode}) => {
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.7 }}
       >
-        I am a frontend developer from California, USA with 10 years of
-        experience in multiple companies like Microsoft, Tesla and Apple.
+        I provide a range of services to help you achieve your goals. Whether you need a stunning website, a powerful mobile app, or a custom software solution, I have the skills and experience to deliver high-quality results.
       </motion.p>
 
       {/* Service Cards */}

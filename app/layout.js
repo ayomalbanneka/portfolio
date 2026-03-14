@@ -1,6 +1,7 @@
 import { Outfit, Ovo } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
+import ToastProvider from "./components/ToastProvider";
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -12,7 +13,7 @@ const ovo = Ovo({
   weight: ["400"],
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://ayomalbanneka.vercel.app";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://ayomalbanneka.me";
 
 export const metadata = {
   metadataBase: new URL(siteUrl),
@@ -22,6 +23,7 @@ export const metadata = {
   },
   description:
     "Ayomal Banneka — Full Stack Software Engineer & aspiring DevOps Engineer from Sri Lanka. Explore projects, skills, and experience in web development, cloud, and DevOps.",
+  manifest: "/manifest.json",
   keywords: [
     "Ayomal Banneka",
     "Full Stack Developer",
@@ -97,6 +99,7 @@ export default function RootLayout({ children }) {
         dark:bg-dark-theme dark:text-white`}
       >
         {children}
+        <ToastProvider />
         <Analytics />
       </body>
     </html>
