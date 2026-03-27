@@ -81,7 +81,7 @@ const About = ({ isDarkMode }) => {
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
                         transition={{ duration: 0.6, delay: 1.5 }}
-                        className='flex flex-wrap items-center gap-3 sm:gap-5'>
+                        className='grid grid-cols-9 gap-3 sm:gap-5'>
                         {toolsData.map((tool, index) => (
                             <motion.li
                                 whileHover={{ scale: 1.05 }}

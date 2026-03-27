@@ -48,6 +48,8 @@ import web_development_icon_white from './web-development-white.png';
 import mobile_icon_white from './mobile_icon_dark.png';
 import cloud_icon_white from './cloud-icon-dark.png';
 import devops_icon_white from './devops-icon-dark.png';
+import terraform from './terraform.png';
+import postgresSQL from './postgresql.png';
 
 export const assets = {
     user_image,
@@ -99,7 +101,9 @@ export const assets = {
     web_development_icon_white,
     mobile_icon_white,
     cloud_icon_white,
-    devops_icon_white
+    devops_icon_white,
+    terraform,
+    postgresSQL
 };
 
 export const workData = [
@@ -126,6 +130,12 @@ export const workData = [
         description: 'A simple Node.js application deployed on Azure App Service, showcasing cloud deployment and management skills.',
         bgImage: '/work-4.png',
         link: 'https://github.com/ayomalbanneka/azure-ci-cd'
+    },
+    {
+        title: 'Deploy 3-tier Linux VM cluster on Azure using Terraform',
+        description: 'A modular Azure infrastructure-as-code project using Terraform to deploy a 3-tier Linux VM cluster (Web, API, DB) with remote state integration and automated disk lifecycle management.',
+        bgImage: '/work-5.png',
+        link: 'https://github.com/ayomalbanneka/azure-terraform-modular-vm'
     }
 ]
 
@@ -151,7 +161,8 @@ export const toolsData = [
     { src: assets.intellijIDEA, name: 'IntelliJ IDEA' },
     { src: assets.postman, name: 'Postman' },
     { src: assets.github_actions, name: 'GitHub Actions' },
-    { src: assets.firebase, name: 'Firebase' },
+    { src: assets.terraform, name: 'Terraform' },
+    { src: assets.postgresSQL, name: 'PostgreSQL' },
 ];
 
 export const cloudServicesData = [
