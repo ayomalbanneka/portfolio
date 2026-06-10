@@ -83,6 +83,7 @@ const jsonLd = [
     url: siteUrl,
     name: "Ayomal Banneka | Full Stack Software Engineer & DevOps",
     isPartOf: { "@id": `${siteUrl}/#website` },
+    mainEntity: { "@id": `${siteUrl}/#person` },
     about: { "@id": `${siteUrl}/#person` },
     description:
       "Portfolio website of Ayomal Banneka showcasing projects, skills, and experience in full stack development, cloud engineering, and DevOps.",
