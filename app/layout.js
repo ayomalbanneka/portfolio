@@ -18,54 +18,87 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://ayomalbanneka.me";
 
 export const metadata = {
   metadataBase: new URL(siteUrl),
+
+  applicationName: "Ayomal Banneka",
+
   title: {
     default: "Ayomal Banneka | Full Stack Software Engineer & DevOps",
     template: "%s | Ayomal Banneka",
   },
+
   description:
-    "Ayomal Banneka — Full Stack Software Engineer & aspiring DevOps Engineer from Sri Lanka. Explore projects, skills, and experience in web development, cloud, and DevOps.",
-  manifest: "/manifest.json",
+    "Ayomal Banneka — undergraduate Full Stack Software Engineer & aspiring DevOps Engineer from Sri Lanka. Specialising in React, Next.js, Node.js, cloud (AWS, Azure), Docker, and CI/CD. Open to collaborations.",
+
+  // ── Canonical URL ──────────────────────────────────────────────────────────
+  alternates: {
+    canonical: siteUrl,
+  },
+
+  // ── Keywords (expanded with long-tail terms) ───────────────────────────────
   keywords: [
     "Ayomal Banneka",
     "Full Stack Developer",
-    "Software Engineer",
+    "Full Stack Software Engineer",
     "DevOps Engineer",
-    "Web Developer",
-    "React",
-    "Next.js",
-    "Sri Lanka",
+    "Web Developer Sri Lanka",
+    "React Developer",
+    "Next.js Developer",
+    "Node.js Developer",
+    "Express Developer",
+    "Sri Lanka Software Engineer",
     "Portfolio",
-    "Cloud Development",
+    "Cloud Engineering",
     "AWS",
     "Azure",
     "Docker",
+    "CI/CD",
+    "GitHub Actions",
+    "Terraform",
+    "PostgreSQL",
+    "MongoDB",
+    "Open Source Developer",
+    "Undergraduate Software Engineer",
   ],
+
   authors: [{ name: "Ayomal Banneka", url: siteUrl }],
   creator: "Ayomal Banneka",
+  publisher: "Ayomal Banneka",
+
+  // ── Manifest ───────────────────────────────────────────────────────────────
+  manifest: "/manifest.json",
+
+  // ── Open Graph ─────────────────────────────────────────────────────────────
   openGraph: {
     type: "website",
     locale: "en_US",
     url: siteUrl,
-    siteName: "Ayomal Banneka Portfolio",
+    siteName: "Ayomal Banneka",
     title: "Ayomal Banneka | Full Stack Software Engineer & DevOps",
     description:
-      "Full Stack Software Engineer & aspiring DevOps Engineer from Sri Lanka. Building beautiful, performant, and accessible web applications.",
+      "Undergraduate Full Stack Software Engineer & aspiring DevOps Engineer from Sri Lanka. Building beautiful, performant, and accessible web applications with React, Next.js, and cloud technologies.",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Ayomal Banneka — Full Stack Software Engineer",
+        alt: "Ayomal Banneka — Full Stack Software Engineer & DevOps",
+        type: "image/png",
       },
     ],
   },
+
+  // ── Twitter / X ────────────────────────────────────────────────────────────
   twitter: {
     card: "summary_large_image",
     title: "Ayomal Banneka | Full Stack Software Engineer & DevOps",
     description:
-      "Full Stack Software Engineer & aspiring DevOps Engineer from Sri Lanka.",
+      "Undergraduate Full Stack Software Engineer & aspiring DevOps Engineer from Sri Lanka. React, Next.js, cloud, and DevOps.",
     images: ["/og-image.png"],
+    // Add your Twitter/X handle here if you have one, e.g.:
+    // creator: "@ayomalbanneka",
   },
+
+  // ── Robots ─────────────────────────────────────────────────────────────────
   robots: {
     index: true,
     follow: true,
@@ -77,6 +110,8 @@ export const metadata = {
       "max-snippet": -1,
     },
   },
+
+  // ── Icons ──────────────────────────────────────────────────────────────────
   icons: {
     icon: "/favicon.ico",
     apple: "/apple-touch-icon.png",
