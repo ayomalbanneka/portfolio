@@ -9,6 +9,7 @@ import NavBar from "./components/NavBar";
 import Work from "./components/Work";
 import Services from "./components/Services";
 import Script from "next/script";
+import Skills from "./components/Skill";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://ayomalbanneka.me";
 
@@ -136,12 +137,13 @@ export default function Home() {
       <NavBar isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
       <main>
         <Header isDarkMode={isDarkMode} />
-        <About isDarkMode={isDarkMode} />
-        <Services isDarkMode={isDarkMode} />
-        <Work isDarkMode={isDarkMode} />
-        <Contact isDarkMode={isDarkMode} />
+        <About />
+        <Skills />
+        <Services />
+        <Work />
+        <Contact />
       </main>
-      <Footer isDarkMode={isDarkMode} />
+      <Footer />
     </>
   );
 }
