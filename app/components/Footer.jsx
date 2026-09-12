@@ -22,6 +22,7 @@ const Footer = () => {
                             ayomal<span className="text-accent">@</span>portfolio
                         </span>
                     </div>
+                    <br />
                     <a
                         href="mailto:ayomalkaushalya@gmail.com"
                         className="font-mono text-sm text-fg-muted hover:text-accent transition-colors duration-300"

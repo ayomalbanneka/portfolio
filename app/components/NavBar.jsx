@@ -1,18 +1,25 @@
 'use client'
 
 import React, { useEffect, useState } from 'react'
+import { usePathname } from 'next/navigation'
 import { motion, AnimatePresence } from 'motion/react'
+import { useTheme } from '../hooks/useTheme'
 
-const links = [
-    { href: '#top', label: '01_home' },
-    { href: '#about', label: '02_about' },
-    { href: '#work', label: '03_work' },
-    { href: '#contact', label: '04_contact' },
-]
-
-const NavBar = ({ isDarkMode, setIsDarkMode }) => {
+const NavBar = () => {
+    const [isDarkMode, setIsDarkMode] = useTheme()
     const [isScrolled, setIsScrolled] = useState(false)
     const [menuOpen, setMenuOpen] = useState(false)
+    const pathname = usePathname()
+
+    // On any page other than the homepage, section hashes need to point back
+    // at "/" first (e.g. "/#about") so they actually navigate somewhere.
+    const prefix = pathname === '/' ? '' : '/'
+    const links = [
+        { href: `${prefix}#top`, label: '01_home' },
+        { href: `${prefix}#about`, label: '02_about' },
+        { href: `${prefix}#work`, label: '03_work' },
+        { href: `${prefix}#contact`, label: '04_contact' },
+    ]
 
     useEffect(() => {
         const onScroll = () => setIsScrolled(window.scrollY > 40)
@@ -27,7 +34,7 @@ const NavBar = ({ isDarkMode, setIsDarkMode }) => {
         >
             <div className="max-w-6xl mx-auto flex items-center justify-between h-16">
                 {/* Logo — window-chrome dots + text prompt, no image asset needed */}
-                <a href="#top" className="flex items-center gap-2 shrink-0">
+                <a href={`${prefix}#top`} className="flex items-center gap-2 shrink-0">
                     <span className="flex gap-1.5">
                         <span className="w-2.5 h-2.5 rounded-full bg-[#ff5f56]" />
                         <span className="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]" />
@@ -71,7 +78,7 @@ const NavBar = ({ isDarkMode, setIsDarkMode }) => {
                     </button>
 
                     <a
-                        href="#contact"
+                        href={`${prefix}#contact`}
                         className="hidden lg:inline-block text-xs font-mono border border-border rounded px-4 py-2 text-fg-muted hover:border-accent hover:text-accent transition-colors duration-200"
                     >
                         [ contact ]

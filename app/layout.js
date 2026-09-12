@@ -30,7 +30,7 @@ export const metadata = {
     template: "%s | Ayomal Banneka",
   },
   description:
-    "Ayomal Banneka — undergraduate Full Stack Software Engineer & aspiring DevOps Engineer from Sri Lanka. Specialising in React, Next.js, Node.js, cloud (AWS, Azure), Docker, and CI/CD. Open to collaborations.",
+    "Ayomal Banneka - undergraduate Full Stack Software Engineer & aspiring DevOps Engineer from Sri Lanka. Specialising in React, Next.js, Node.js, cloud (AWS, Azure), Docker, and CI/CD. Open to collaborations.",
   alternates: { canonical: siteUrl },
   keywords: [
     "Ayomal Banneka",

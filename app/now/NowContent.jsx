@@ -19,7 +19,18 @@ const sections = [
     },
     {
         tag: 'certified',
-        items: ['KodeKloud Terraform — Level 2', 'KodeKloud Docker — Level 1'],
+        items: [
+            'Docker (KodeKloud) - Level 1',
+            'Terraform (KodeKloud) - Level 1',
+            'Terraform (KodeKloud) - Level 2',
+            'KodeKloud Engineer - 100 Days of Cloud (Azure)',
+            'KodeKloud Engineer - 100 Days of Cloud (AWS)',
+            'Docker for Absolute Beginners with Hands on Projects',
+            'Introduction to Jenkins LFS167',
+            'LFS101: Introduction to Linux',
+            'Postman API Fundamentals Student Expert',
+            'Introduction to Amazon EC2 Auto Scaling'
+        ],
     },
     {
         tag: 'studying',
