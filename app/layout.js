@@ -1,40 +1,37 @@
-import { Outfit, Ovo } from "next/font/google";
+import { Martian_Mono, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
 import ToastProvider from "./components/ToastProvider";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import MotionProvider from "./components/MotionProvider";
+import EasterEgg from "./components/EasterEgg";
 
-const outfit = Outfit({
+const martianMono = Martian_Mono({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "500", "700", "800"],
+  variable: "--font-martian",
+  display: "swap",
 });
 
-const ovo = Ovo({
+const plexMono = IBM_Plex_Mono({
   subsets: ["latin"],
-  weight: ["400"],
+  weight: ["400", "500", "600"],
+  variable: "--font-plex",
+  display: "swap",
 });
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://ayomalbanneka.me";
 
 export const metadata = {
   metadataBase: new URL(siteUrl),
-
   applicationName: "Ayomal Banneka",
-
   title: {
     default: "Ayomal Banneka | Full Stack Software Engineer & DevOps",
     template: "%s | Ayomal Banneka",
   },
-
   description:
-    "Ayomal Banneka — undergraduate Full Stack Software Engineer & aspiring DevOps Engineer from Sri Lanka. Specialising in React, Next.js, Node.js, cloud (AWS, Azure), Docker, and CI/CD. Open to collaborations.",
-
-  // ── Canonical URL ──────────────────────────────────────────────────────────
-  alternates: {
-    canonical: siteUrl,
-  },
-
-  // ── Keywords (expanded with long-tail terms) ───────────────────────────────
+    "Ayomal Banneka - undergraduate Full Stack Software Engineer & aspiring DevOps Engineer from Sri Lanka. Specialising in React, Next.js, Node.js, cloud (AWS, Azure), Docker, and CI/CD. Open to collaborations.",
+  alternates: { canonical: siteUrl },
   keywords: [
     "Ayomal Banneka",
     "Full Stack Developer",
@@ -59,15 +56,10 @@ export const metadata = {
     "Open Source Developer",
     "Undergraduate Software Engineer",
   ],
-
   authors: [{ name: "Ayomal Banneka", url: siteUrl }],
   creator: "Ayomal Banneka",
   publisher: "Ayomal Banneka",
-
-  // ── Manifest ───────────────────────────────────────────────────────────────
   manifest: "/manifest.json",
-
-  // ── Open Graph ─────────────────────────────────────────────────────────────
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -86,19 +78,13 @@ export const metadata = {
       },
     ],
   },
-
-  // ── Twitter / X ────────────────────────────────────────────────────────────
   twitter: {
     card: "summary_large_image",
     title: "Ayomal Banneka | Full Stack Software Engineer & DevOps",
     description:
       "Undergraduate Full Stack Software Engineer & aspiring DevOps Engineer from Sri Lanka. React, Next.js, cloud, and DevOps.",
     images: ["/og-image.png"],
-    // Add your Twitter/X handle here if you have one, e.g.:
-    // creator: "@ayomalbanneka",
   },
-
-  // ── Robots ─────────────────────────────────────────────────────────────────
   robots: {
     index: true,
     follow: true,
@@ -110,8 +96,6 @@ export const metadata = {
       "max-snippet": -1,
     },
   },
-
-  // ── Icons ──────────────────────────────────────────────────────────────────
   icons: {
     icon: "/favicon.ico",
     apple: "/apple-touch-icon.png",
@@ -120,8 +104,8 @@ export const metadata = {
 
 export const viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
-    { media: "(prefers-color-scheme: dark)", color: "#11001f" },
+    { media: "(prefers-color-scheme: light)", color: "#f7f5ee" },
+    { media: "(prefers-color-scheme: dark)", color: "#0a0d0a" },
   ],
   width: "device-width",
   initialScale: 1,
@@ -129,12 +113,15 @@ export const viewport = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <body
-        className={`${outfit.className} ${ovo.className} antialiased leading-8 overflow-x-hidden 
-        dark:bg-dark-theme dark:text-white`}
-      >
-        {children}
+    <html
+      lang="en"
+      className={`scroll-smooth ${martianMono.variable} ${plexMono.variable}`}
+    >
+      <body className="font-mono antialiased leading-relaxed overflow-x-hidden bg-bg text-fg selection:bg-accent selection:text-bg">
+        <MotionProvider>
+          {children}
+          <EasterEgg />
+        </MotionProvider>
         <ToastProvider />
         <Analytics />
         <SpeedInsights />

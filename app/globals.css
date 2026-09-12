@@ -3,49 +3,71 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-  --light-hover: #f2f2f2;
-  --dark-hover: #2a004a;
-  --dark-theme: #11001f;
-  --box-dark-shadow: 0px 4px 12px #000;
-  --box-light-shadow: 0px 4px 12px #fff;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-light-hover: var(--light-hover);
-  --color-dark-hover: var(--dark-hover);
-  --color-dark-theme: var(--dark-theme);
-  --box-dark-shadow: var(--box-dark-shadow);
-  --box-light-shadow: var(--box-light-shadow);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-  --font-outfit: "Outfit", sans-serif;
-  --font-ovo: "Ovo", serif;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #ffffff;
-    --foreground: #000000;
-  }
+  --bg: #f7f5ee;
+  --bg-elevated: #efece0;
+  --fg: #14171a;
+  --fg-muted: #5b5f53;
+  --border: rgba(20, 23, 20, 0.28);
+  --accent: #b06d00;
+  --accent-soft: rgba(176, 109, 0, 0.16);
 }
 
 .dark {
-  --background: #11001f;
-  --foreground: #ffffff;
-  --light-hover: #2a004a;
+  --bg: #0a0d0a;
+  --bg-elevated: #10140f;
+  --fg: #e9ede7;
+  --fg-muted: #8a9086;
+  --border: rgba(233, 237, 231, 0.12);
+  --accent: #ffb02e;
+  --accent-soft: rgba(255, 176, 46, 0.14);
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-bg-elevated: var(--bg-elevated);
+  --color-fg: var(--fg);
+  --color-fg-muted: var(--fg-muted);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --font-display: var(--font-martian);
+  --font-mono: var(--font-plex);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+html,
+body {
   overflow-x: hidden;
 }
 
-html {
-  overflow-x: hidden;
+/* Faint blueprint grid — used behind the hero */
+.grid-texture {
+  background-image:
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 44px 44px;
+  background-position: center top;
+}
+
+/* Visible keyboard-focus ring in the accent color — the custom
+   bracket-buttons/tags/toggle have no built-in browser affordance strong
+   enough against the dark theme, so this makes tab order actually visible. */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Terminal cursor blink, CSS-only so it costs nothing on the main thread */
+@keyframes blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+.cursor-blink {
+  animation: blink 1.1s step-end infinite;
 }

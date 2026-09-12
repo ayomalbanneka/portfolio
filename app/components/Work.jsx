@@ -1,90 +1,100 @@
-import { assets, workData } from '@/assets/assets'
-import Image from 'next/image'
+'use client'
+
 import React from 'react'
-import { motion } from "motion/react"
+import Image from 'next/image'
+import { motion } from 'motion/react'
+import { workData } from '@/assets/assets'
 
-const Work = ({ isDarkMode }) => {
+const Work = () => {
     return (
+        <section id="work" className="w-full px-5 lg:px-10 py-24 scroll-mt-20">
+            <div className="max-w-5xl mx-auto">
+                <motion.p
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
+                    className="font-mono text-xs tracking-widest uppercase text-accent mb-3"
+                >
+                    // work
+                </motion.p>
+                <motion.h2
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.1 }}
+                    className="font-display uppercase text-3xl sm:text-4xl mb-4 text-fg"
+                >
+                    Recent projects
+                </motion.h2>
 
-        <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 1 }}
-            id='work' className='w-full px-[5%] sm:px-[8%] lg:px-[12%] py-10 scroll-mt-20'>
+                <motion.p
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.2 }}
+                    className="text-fg-muted text-sm sm:text-base max-w-xl mb-12 leading-relaxed"
+                >
+                    Some of the things I've built — mostly full stack, occasionally just an
+                    excuse to try a new tool.
+                </motion.p>
 
-            <motion.h4
-                initial={{ y: -20, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.3, delay: 0.5 }}
-                className='text-center mb-2 text-lg font-ovo'>
-                My Portfolio
-            </motion.h4>
-
-            <motion.h2
-                initial={{ y: -20, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.5, delay: 0.5 }}
-                className='text-center text-3xl sm:text-5xl font-ovo'>
-                My Latest Work
-            </motion.h2>
-
-            <motion.p
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                transition={{ duration: 0.5, delay: 0.7 }}
-                className='text-center max-w-2xl mx-auto mt-5 mb-12 font-ovo'>
-                Here are some of the projects I've worked on.
-                I'm always looking for new opportunities to collaborate and create amazing things,
-                so if you have a project in mind, feel free to reach out!
-            </motion.p>
-
-            <motion.div
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                transition={{ duration: 0.9, delay: 0.6 }}
-                className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 my-10 gap-6 dark:text-black'>
-
-                {workData.map((project, index) => (
-
-                    <motion.div
-                        whileHover={{ scale: 1.05 }}
-                        transition={{ duration: 0.3 }}
-                        key={index}
-                        className='aspect-video rounded-lg relative cursor-pointer group overflow-hidden shadow-lg'>
-                        <Image
-                            src={project.bgImage}
-                            alt={project.title}
-                            fill
-                            sizes='(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw'
-                            className='object-cover object-top rounded-lg'
-                        />
-                        <div className='bg-white/95 w-11/12 rounded-md absolute bottom-3 left-1/2 -translate-x-1/2 py-3 px-4 flex items-center gap-2 group-hover:bottom-5 duration-500 z-10'>
-                            <div className='flex-1 min-w-0'>
-                                <h2 className='font-semibold text-sm sm:text-base leading-snug'>{project.title}</h2>
-                                <p className='text-xs sm:text-sm text-gray-700 leading-tight mt-0.5 line-clamp-2'>{project.description}</p>
+                <div className="grid sm:grid-cols-2 gap-6">
+                    {workData.map((project, i) => (
+                        <motion.a
+                            href={project.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            key={project.title}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.4, delay: (i % 2) * 0.1 }}
+                            className="group block border border-border rounded-lg overflow-hidden hover:border-accent transition-colors duration-300"
+                        >
+                            <div className="flex items-center gap-1.5 px-3 py-2 border-b border-border bg-bg-elevated">
+                                <span className="w-2 h-2 rounded-full bg-[#ff5f56]" />
+                                <span className="w-2 h-2 rounded-full bg-[#ffbd2e]" />
+                                <span className="w-2 h-2 rounded-full bg-[#27c93f]" />
+                                <span className="ml-2 text-[10px] text-fg-muted font-mono truncate">
+                                    {project.bgImage.replace('/', '')}
+                                </span>
                             </div>
-                            <div className='border rounded-full border-black w-9 min-w-9 aspect-square flex items-center 
-                                justify-center shadow-[2px_2px_0_#000] group-hover:bg-lime-300 transition'>
-                                <a href={project.link} target='_blank' rel='noopener noreferrer' className='w-full h-full flex items-center justify-center'>
-                                    <Image src={assets.send_icon} alt='send icon' className='w-5' />
-                                </a>
-                            </div>
-                        </div>
-                    </motion.div>
 
-                ))}
-            </motion.div>
-            {/* <motion.a
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                transition={{ duration: 0.5, delay: 1.1 }}
-                href="" className='w-max flex items-center justify-center gap-2
-                 text-gray-700 border-[0.5px] border-gray-700 
-                 rounded-full py-3 px-10 mx-auto my-20 hover:bg-light-hover 
-                 duration-500 dakr:text-white dark:border-white dark:hover:bg-dark-hover dark:text-white'>
-                show more <Image src={isDarkMode ? assets.right_arrow_bold_dark : assets.right_arrow_bold} alt='right arrow' className='w-4' />
-            </motion.a> */}
-        </motion.div>
+                            <div className="relative aspect-video overflow-hidden">
+                                <Image
+                                    src={project.bgImage}
+                                    alt={project.title}
+                                    fill
+                                    sizes="(max-width: 640px) 100vw, 50vw"
+                                    className="object-cover object-top grayscale group-hover:grayscale-0 scale-100 group-hover:scale-[1.04] transition-all duration-700 ease-out"
+                                />
+                            </div>
+
+                            <div className="px-5 py-4 bg-bg-elevated">
+                                <div className="flex items-center justify-between gap-3">
+                                    <div className="min-w-0">
+                                        <h3 className="font-display uppercase text-sm sm:text-base text-fg truncate">
+                                            {project.title}
+                                        </h3>
+                                        <p className="text-xs text-fg-muted mt-0.5 truncate">
+                                            {project.description}
+                                        </p>
+                                    </div>
+                                    <span className="shrink-0 text-xs font-mono text-fg-muted group-hover:text-accent transition-colors duration-300">
+                                        [ view → ]
+                                    </span>
+                                </div>
+                                {project.blurb && (
+                                    <p className="text-xs text-fg-muted mt-3 pt-3 border-t border-border leading-relaxed">
+                                        {project.blurb}
+                                    </p>
+                                )}
+                            </div>
+                        </motion.a>
+                    ))}
+                </div>
+            </div>
+        </section>
     )
 }
 

@@ -1,124 +1,88 @@
-import { assets, cloudServicesData, infoList, toolsData } from '@/assets/assets'
-import Image from 'next/image'
+'use client'
+
 import React from 'react'
-import { motion } from "motion/react"
+import Image from 'next/image'
+import { motion } from 'motion/react'
+import { assets } from '@/assets/assets'
 
-const About = ({ isDarkMode }) => {
+const About = () => {
     return (
-        <motion.div id='about' className='w-full px-[5%] sm:px-[8%] lg:px-[12%] py-10 scroll-mt-20'
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 1 }}
-        >
-            <motion.h4
-                initial={{ y: -20, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.5, delay: 0.3 }}
-                className='text-center mb-2 text-lg font-ovo'>Introduction</motion.h4>
-
-            <motion.h2
-                initial={{ y: -20, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.5, delay: 0.5 }}
-                className='text-center text-3xl sm:text-5xl font-ovo'>About Me</motion.h2>
-
-            <motion.div
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                transition={{ duration: 0.8 }}
-                className='flex w-full flex-col lg:flex-row items-center gap-10 lg:gap-20 my-10 lg:my-20'>
-
-                <motion.div
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.6 }}
-                    className='w-64 sm:w-80 rounded-3xl max-w-none'>
-                    <Image src={assets.user_image} alt='Ayomal Banneka portrait' className='w-full rounded-3xl' />
-                </motion.div>
-
-                <motion.div
+        <section id="about" className="w-full px-5 lg:px-10 py-24 scroll-mt-20">
+            <div className="max-w-4xl mx-auto">
+                <motion.p
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
-                    transition={{ duration: 0.6, delay: 0.8 }}
-                    className='flex-1'>
-                    <p className='mb-10 max-w-2xl font-ovo'>
-                        I'm a passionate full stack software engineer with a strong foundation in both frontend and backend development.
-                        I have experience working with a variety of technologies and frameworks, and I'm always eager to learn and explore new tools and techniques.
-                        I enjoy building beautiful, performant, and accessible web applications that provide value to users.
-                        I'm also an aspiring DevOps Engineer, looking to enhance my skills in deployment and infrastructure management to create seamless and efficient development workflows.
-                    </p>
+                    viewport={{ once: true }}
+                    className="font-mono text-xs tracking-widest uppercase text-accent mb-3"
+                >
+                    // about
+                </motion.p>
+                <motion.h2
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.1 }}
+                    className="font-display uppercase text-3xl sm:text-4xl mb-12 text-fg"
+                >
+                    Who's writing this code
+                </motion.h2>
 
-                    <motion.ul
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 1 }}
-                        transition={{ duration: 0.8, delay: 1 }}
-                        className='grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-2xl'>
-                        {infoList.map(({ icon, iconDark, title, description }, index) => (
+                <div className="grid lg:grid-cols-[15rem_1fr] gap-10 lg:gap-14 items-start">
+                    {/* Portrait, framed like a small terminal window */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 16 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5 }}
+                        className="border border-border rounded-lg overflow-hidden bg-bg-elevated mx-auto lg:mx-0 w-56 sm:w-64 lg:w-full"
+                    >
+                        <div className="flex items-center gap-1.5 px-3 py-2 border-b border-border">
+                            <span className="w-2 h-2 rounded-full bg-[#ff5f56]" />
+                            <span className="w-2 h-2 rounded-full bg-[#ffbd2e]" />
+                            <span className="w-2 h-2 rounded-full bg-[#27c93f]" />
+                            <span className="ml-2 text-[10px] text-fg-muted font-mono">
+                                portrait.png
+                            </span>
+                        </div>
+                        <Image
+                            src={assets.user_image}
+                            alt="Ayomal Banneka portrait"
+                            className="w-full grayscale hover:grayscale-0 transition-all duration-700 ease-out"
+                        />
+                    </motion.div>
 
-                            <motion.li
-                                initial={{ scale: 1.05 }}
-                                className='border-[0.5px] border-gray-400 rounded-xl p-6 cursor-pointer hover:bg-light-hover 
-                            hover:-translate-y-1 duration-500 hover:shadow-lg hover:shadow-black
-                             dark:border-white dark:hover:shadow-white dark:hover:bg-dark-hover/50'
-                                key={index}>
-                                <Image src={isDarkMode ? iconDark : icon} alt={title} className='w-7 mt-3' />
-                                <h3 className='my-4 font-semibold text-gray-700 dark:text-white'>{title}</h3>
-                                <p className='text-gray-600 text-sm dark:text-white/80'>{description}</p>
-                            </motion.li>
-
-                        ))}
-                    </motion.ul>
-
-                    <motion.h4
-                        initial={{ y: 20, opacity: 0 }}
-                        whileInView={{ y: 0, opacity: 1 }}
-                        transition={{ duration: 1.3, delay: 0.5 }}
-                        className='my-6  text-gray-700 font-ovo dark:text-white/80'>
-                        Tools I use
-                    </motion.h4>
-
-                    <motion.ul
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 1 }}
-                        transition={{ duration: 0.6, delay: 1.5 }}
-                        className='grid grid-cols-9 gap-3 sm:gap-5'>
-                        {toolsData.map((tool, index) => (
-                            <motion.li
-                                whileHover={{ scale: 1.05 }}
-                                className='flex items-center justify-center w-12 sm:w-14 aspect-square border
-                             border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500'
-                                key={index}>
-                                <Image src={tool.src} alt={tool.name} className='w-5 sm:w-7' />
-                            </motion.li>
-                        ))}
-                    </motion.ul>
-
-                    <motion.h4
-                        initial={{ y: 20, opacity: 0 }}
-                        whileInView={{ y: 0, opacity: 1 }}
-                        transition={{ duration: 1.3, delay: 0.5 }}
-                        className='my-6  text-gray-700 font-ovo dark:text-white/80'>
-                        Cloud services I use
-                    </motion.h4>
-
-                    <motion.ul
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 1 }}
-                        transition={{ duration: 0.6, delay: 1.5 }}
-                        className='flex flex-wrap items-center gap-3 sm:gap-5'>
-                        {cloudServicesData.map((tool, index) => (
-                            <motion.li
-                                whileHover={{ scale: 1.05 }}
-                                className='flex items-center justify-center w-12 sm:w-14 aspect-square border
-                             border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500'
-                                key={index}>
-                                <Image src={tool.src} alt={tool.name} className='w-5 sm:w-7' />
-                            </motion.li>
-                        ))}
-                    </motion.ul>
-                </motion.div>
-            </motion.div>
-        </motion.div>
+                    {/* Bio, styled like a README file open in an editor */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 16 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: 0.15 }}
+                        className="border border-border rounded-lg overflow-hidden bg-bg-elevated"
+                    >
+                        <div className="flex items-center gap-2 px-4 py-2.5 border-b border-border">
+                            <span className="text-accent font-mono text-xs">#</span>
+                            <span className="text-xs font-mono text-fg-muted">README.md</span>
+                        </div>
+                        <div className="p-6 sm:p-8">
+                            <p className="text-fg-muted text-sm sm:text-base leading-relaxed">
+                                I'm a passionate full stack software engineer with a strong
+                                foundation in both frontend and backend development. I have
+                                experience working with a variety of technologies and frameworks,
+                                and I'm always eager to learn and explore new tools and techniques.
+                                <br />
+                                <br />
+                                I enjoy building beautiful, performant, and accessible web
+                                applications that provide real value to users. I'm also an
+                                aspiring DevOps Engineer, looking to sharpen my skills in
+                                deployment and infrastructure management to create seamless,
+                                efficient development workflows.
+                                <span className="text-accent cursor-blink ml-1">_</span>
+                            </p>
+                        </div>
+                    </motion.div>
+                </div>
+            </div>
+        </section>
     )
 }
 

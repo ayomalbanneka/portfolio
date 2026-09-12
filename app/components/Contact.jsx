@@ -1,11 +1,10 @@
-import { assets } from '@/assets/assets'
-import Image from 'next/image'
+'use client'
+
 import React from 'react'
-import { motion } from "motion/react"
+import { motion } from 'motion/react'
 import { gooeyToast } from 'goey-toast'
 
 const Contact = () => {
-
     const onSubmit = async (event) => {
         event.preventDefault();
         const formData = new FormData(event.target);
@@ -30,85 +29,95 @@ const Contact = () => {
             },
         });
 
-        submitPromise.then(() => event.target.reset()).catch(() => {});
+        submitPromise.then(() => event.target.reset()).catch(() => { });
     };
 
     return (
-        <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 1 }}
-            id='contact' className='w-full px-[5%] sm:px-[8%] lg:px-[12%] py-10 scroll-mt-20 bg-[url("/footer-bg-color.png")] 
-        bg-no-repeat bg-center bg-size-[90%_auto] dark:bg-none'>
+        <section id="contact" className="w-full px-5 lg:px-10 py-24 scroll-mt-20 grid-texture">
+            <div className="max-w-2xl mx-auto">
+                <motion.p
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
+                    className="font-mono text-xs tracking-widest uppercase text-accent mb-3 text-center"
+                >
+                    // contact
+                </motion.p>
+                <motion.h2
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.1 }}
+                    className="font-display uppercase text-3xl sm:text-4xl mb-4 text-fg text-center"
+                >
+                    Get in touch
+                </motion.h2>
 
-            <motion.h4
-                initial={{ y: -20, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.3, delay: 0.5 }}
-                className='text-center mb-2 text-lg font-ovo'>
-                Connect with Me
-            </motion.h4>
+                <motion.p
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.2 }}
+                    className="text-fg-muted text-sm sm:text-base text-center max-w-lg mx-auto mb-12 leading-relaxed"
+                >
+                    Always open to discussing new projects, ideas, or opportunities. Fill out the
+                    fields below and I'll get back to you.
+                </motion.p>
 
-            <motion.h2
-                initial={{ y: -20, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.5, delay: 0.5 }}
-                className='text-center text-3xl sm:text-5xl font-ovo'>
-                Get in touch
-            </motion.h2>
+                <motion.form
+                    initial={{ opacity: 0, y: 16 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: 0.25 }}
+                    onSubmit={onSubmit}
+                    className="border border-border rounded-lg bg-bg-elevated p-6 sm:p-8"
+                >
+                    <div className="grid sm:grid-cols-2 gap-6 mb-6">
+                        <label className="block">
+                            <span className="font-mono text-xs text-accent">name:</span>
+                            <input
+                                type="text"
+                                name="name"
+                                placeholder="jane_doe"
+                                required
+                                className="w-full mt-2 bg-transparent border-b border-border py-2 text-sm text-fg placeholder:text-fg-muted/60 outline-none focus:border-accent transition-colors duration-300"
+                            />
+                        </label>
 
-            <motion.p
-                initial={{ y: -20, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.7, delay: 0.5 }}
-                className='text-center max-w-2xl mx-auto mt-5 mb-12 font-ovo'>
-                I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions.
-                Feel free to reach out to me through any of the platforms below, and let's start a conversation!
-            </motion.p>
+                        <label className="block">
+                            <span className="font-mono text-xs text-accent">email:</span>
+                            <input
+                                type="email"
+                                name="email"
+                                placeholder="jane@example.com"
+                                required
+                                className="w-full mt-2 bg-transparent border-b border-border py-2 text-sm text-fg placeholder:text-fg-muted/60 outline-none focus:border-accent transition-colors duration-300"
+                            />
+                        </label>
+                    </div>
 
-            <motion.form
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                transition={{ duration: 0.3, delay: 0.9 }}
-                onSubmit={onSubmit} className='max-w-2xl mx-auto'>
-                <div className='grid grid-cols-1 sm:grid-cols-2 gap-6 mt-10 mb-8'>
+                    <label className="block mb-8">
+                        <span className="font-mono text-xs text-accent">message:</span>
+                        <textarea
+                            name="message"
+                            rows="5"
+                            placeholder="Tell me about your project..."
+                            required
+                            className="w-full mt-2 bg-transparent border-b border-border py-2 text-sm text-fg placeholder:text-fg-muted/60 outline-none focus:border-accent transition-colors duration-300 resize-none"
+                        />
+                    </label>
 
-                    <motion.input
-                        initial={{ x: -50, opacity: 0 }}
-                        whileInView={{ x: 0, opacity: 1 }}
-                        transition={{ duration: 1.1, delay: 0.6 }}
-                        type="text" placeholder='Enter your name' className='flex-1 p-3 outline-none border-[0.5px]
-                     border-gray-400 rounded-md bg-white dark:bg-dark-hover/30 dark:border-white/90' required name='name' />
-
-                    <motion.input
-                        initial={{ x: 50, opacity: 0 }}
-                        whileInView={{ x: 0, opacity: 1 }}
-                        transition={{ duration: 1.1, delay: 0.6 }}
-                        type="email" placeholder='Enter your email' className='flex-1 p-3 outline-none border-[0.5px]
-                     border-gray-400 rounded-md bg-white dark:bg-dark-hover/30 dark:border-white/90' required name='email' />
-
-                </div>
-
-                <motion.textarea
-                    initial={{ y: 100, opacity: 0 }}
-                    whileInView={{ y: 0, opacity: 1 }}
-                    transition={{ duration: 0.6, delay: 1.3 }}
-                    rows='6' placeholder='Enter your message' required
-                    className='w-full p-4 outline-none border-[0.5px] border-gray-400 
-                    rounded-md bg-white mb-6 dark:bg-dark-hover/30 dark:border-white/90' name="message">
-                </motion.textarea>
-
-                <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    transition={{ duration: 0.3 }}
-                    className='py-3 px-8 w-max flex items-center justify-between gap-2 bg-black/80
-                 text-white rounded-full mx-auto hover:bg-black 
-                 duration-500 dark:bg-transparent dark:border-[0.5px] dark:hover:bg-dark-hover' type='submit'>
-                    Submit now <Image src={assets.right_arrow_white} alt='' className='w-4' />
-                </motion.button>
-
-            </motion.form>
-        </motion.div>
+                    <motion.button
+                        type="submit"
+                        whileHover={{ scale: 1.03 }}
+                        whileTap={{ scale: 0.98 }}
+                        className="w-full sm:w-max mx-auto flex items-center justify-center gap-2 text-sm border border-fg rounded px-8 py-3 text-fg hover:bg-fg hover:text-bg transition-colors duration-300"
+                    >
+                        [ submit_now ]
+                    </motion.button>
+                </motion.form>
+            </div>
+        </section>
     )
 }
 
