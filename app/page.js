@@ -1,5 +1,3 @@
-'use client';
-
 import About from "./components/About";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
@@ -8,12 +6,10 @@ import NavBar from "./components/NavBar";
 import Skills from "./components/Skills";
 import Work from "./components/Work";
 import Services from "./components/Services";
-import Script from "next/script";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://ayomalbanneka.me";
 
 const jsonLd = [
-  // ── Person ────────────────────────────────────────────────────────────────
   {
     "@context": "https://schema.org",
     "@type": "Person",
@@ -27,10 +23,7 @@ const jsonLd = [
     description:
       "Undergraduate Full Stack Software Engineer & aspiring DevOps Engineer from Sri Lanka, specialising in React, Next.js, Node.js, cloud platforms (AWS, Azure), Docker, and CI/CD pipelines.",
     email: "ayomalkaushalya@gmail.com",
-    nationality: {
-      "@type": "Country",
-      name: "Sri Lanka",
-    },
+    nationality: { "@type": "Country", name: "Sri Lanka" },
     sameAs: [
       "https://github.com/ayomalbanneka",
       "https://www.linkedin.com/in/ayomalbanneka/",
@@ -38,44 +31,23 @@ const jsonLd = [
       "https://web.facebook.com/ayomal.kaushalya",
     ],
     knowsAbout: [
-      "JavaScript",
-      "TypeScript",
-      "React",
-      "Next.js",
-      "Node.js",
-      "Express",
-      "Java",
-      "PHP",
-      "Docker",
-      "AWS",
-      "Azure",
-      "DevOps",
-      "CI/CD",
-      "GitHub Actions",
-      "Terraform",
-      "PostgreSQL",
-      "MongoDB",
-      "MySQL",
+      "JavaScript", "TypeScript", "React", "Next.js", "Node.js", "Express",
+      "Java", "PHP", "Docker", "AWS", "Azure", "DevOps", "CI/CD",
+      "GitHub Actions", "Terraform", "PostgreSQL", "MongoDB", "MySQL",
     ],
   },
-
-  // ── WebSite ───────────────────────────────────────────────────────────────
   {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "@id": `${siteUrl}/#website`,
     name: "Ayomal Banneka",
+    alternateName: ["Ayomal Banneka", "ayomalbanneka.me"],
     url: siteUrl,
     description:
       "Personal portfolio of Ayomal Banneka — Full Stack Software Engineer & DevOps enthusiast from Sri Lanka.",
-    author: {
-      "@type": "Person",
-      "@id": `${siteUrl}/#person`,
-    },
+    author: { "@type": "Person", "@id": `${siteUrl}/#person` },
     inLanguage: "en-US",
   },
-
-  // ── WebPage ───────────────────────────────────────────────────────────────
   {
     "@context": "https://schema.org",
     "@type": "ProfilePage",
@@ -91,12 +63,7 @@ const jsonLd = [
     breadcrumb: {
       "@type": "BreadcrumbList",
       itemListElement: [
-        {
-          "@type": "ListItem",
-          position: 1,
-          name: "Home",
-          item: siteUrl,
-        },
+        { "@type": "ListItem", position: 1, name: "Home", item: siteUrl },
       ],
     },
   },
@@ -105,11 +72,9 @@ const jsonLd = [
 export default function Home() {
   return (
     <>
-      <Script
-        id="json-ld"
+      <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        strategy="beforeInteractive"
       />
       <NavBar />
       <main>
