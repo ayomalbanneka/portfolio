@@ -9,7 +9,7 @@ export default function sitemap() {
       changeFrequency: "monthly",
       priority: 1,
     },
-    // Add section anchors so they appear as distinct sitemap entries.
+    
     {
       url: `${siteUrl}/now`,
       lastModified: new Date(),
