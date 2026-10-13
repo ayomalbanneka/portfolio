@@ -2,7 +2,7 @@
 
 import React from 'react'
 import { motion } from 'motion/react'
-import { infoList, toolsData, cloudServicesData } from '@/assets/assets'
+import { infoList, toolsData, cloudServicesData, operatingSystemsData } from '@/assets/assets'
 
 const languageRow = infoList.find((i) => i.title === 'Languages')
 const educationRow = infoList.find((i) => i.title === 'Education')
@@ -16,10 +16,11 @@ const rows = [
     },
     { key: '02', label: 'tools', values: toolsData.map((t) => t.name) },
     { key: '03', label: 'cloud', values: cloudServicesData.map((t) => t.name) },
-    { key: '04', label: 'education', values: [educationRow.description] },
-    { key: '05', label: 'projects', values: [projectsRow.description] },
+    { key: '04', label: 'operating systems', values: operatingSystemsData.map((t) => t.name) },
+    { key: '05', label: 'education', values: [educationRow.description] },
+    { key: '06', label: 'projects', values: [projectsRow.description] },
     {
-        key: '06',
+        key: '07',
         label: 'certifications',
         values: [
             'Docker (KodeKloud) - Level 1',
